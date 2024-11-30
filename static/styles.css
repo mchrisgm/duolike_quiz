@@ -1,0 +1,158 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1f212d; /* Dark blue background */
+  margin: 0;
+  padding: 0;
+  color: #dbe4ff; /* Light blue text */
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #1f212d; /* Darker blue container background */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  color: #4facfe; /* Bright blue heading */
+  margin: 0;
+  padding: 10px 0;
+}
+
+#difficulty-bar {
+  display: flex;
+  gap: 5px;
+}
+
+.cell {
+  width: 15px;
+  height: 15px;
+  background: #2a2f4f; /* Muted dark blue cells */
+  border-radius: 2px;
+}
+
+.cell.active {
+  background: #4facfe; /* Bright blue for active cells */
+}
+
+#fund-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #c8d1ff; /* Muted light blue */
+  margin-top: 10px;
+}
+
+#question-container p {
+  font-size: 18px;
+  color: #dbe4ff; /* Light blue text */
+}
+
+#options-container button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #2a2f4f; /* Dark button */
+  color: #dbe4ff; /* Light blue text */
+  border: 1px solid #3d4263; /* Subtle border */
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#options-container button:hover {
+  background-color: #4facfe; /* Bright blue on hover */
+  color: #12162b; /* Dark text for contrast */
+}
+
+#answer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Spacing between the input and button */
+  margin-top: 20px;
+}
+
+#user-answer {
+  flex: 1; /* Allow the input field to take available space */
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #3d4263; /* Subtle border */
+  background-color: #1a1f3a; /* Dark input background */
+  color: #dbe4ff; /* Light blue text */
+  border-radius: 4px;
+}
+
+#submit-answer {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #2a2f4f; /* Dark button */
+  color: #dbe4ff; /* Light blue text */
+  border: 1px solid #3d4263; /* Subtle border */
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#submit-answer:hover {
+  background-color: #4facfe; /* Bright blue on hover */
+  color: #12162b; /* Dark text for contrast */
+}
+
+#feedback {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #dbe4ff; /* Light blue text */
+}
+
+/* Score display */
+#score {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #4facfe; /* Highlight for score */
+}
+
+/* Pop-up feedback styles */
+#popup-feedback {
+  position: fixed;
+  bottom: -200px;
+  left: 0;
+  right: 0;
+  background-color: #1a1f3a; /* Darker blue */
+  color: #dbe4ff; /* Light text */
+  padding: 20px;
+  text-align: center;
+  font-size: 16px;
+  border-top: 4px solid #4facfe;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+  transition: bottom 0.4s ease-in-out;
+}
+
+#popup-feedback.show {
+  bottom: 0;
+}
+
+#popup-feedback p {
+  margin: 0 0 10px 0;
+}
+
+#popup-feedback button {
+  background-color: #4facfe; /* Bright blue button */
+  color: #12162b; /* Dark text for contrast */
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#popup-feedback button:hover {
+  background-color: #3a91d6; /* Slightly darker blue on hover */
+}

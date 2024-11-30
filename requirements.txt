@@ -1,0 +1,6 @@
+numpy
+flask
+flask_cors
+PyPDF2
+openai
+python-dotenv

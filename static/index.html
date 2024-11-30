@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polar Capital Fund Facts</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Polar Capital Fund Facts</h1>
+      <div id="difficulty-bar">
+        <span class="cell" id="cell-1"></span>
+        <span class="cell" id="cell-2"></span>
+        <span class="cell" id="cell-3"></span>
+        <span class="cell" id="cell-4"></span>
+        <span class="cell" id="cell-5"></span>
+      </div>
+    </header>
+    <div id="game">
+      <div id="score">
+        <p>Score: <span id="score-value">0</span></p>
+      </div>
+      <div id="fund-name"></div>
+      <div id="question-container">
+        <p id="question"></p>
+      </div>
+      <div id="options-container"></div>
+      <div id="answer-container">
+        <input type="text" id="user-answer" placeholder="Type your answer" />
+        <button id="submit-answer">Submit</button>
+      </div>
+    </div>
+    <div id="popup-feedback">
+      <p id="popup-message"></p>
+      <button id="next-question">Next Question</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
