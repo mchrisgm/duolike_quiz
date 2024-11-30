@@ -1,142 +1,155 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #1f212d; /* Dark blue background */
+/* Fullscreen layout with a gradient background */
+html, body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #1e1e2f, #21243c); /* Gradient background */
   color: #dbe4ff; /* Light blue text */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Main container with rounded corners and shadow */
 .container {
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 20px;
-  background: #1f212d; /* Darker blue container background */
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  width: 90%;
+  max-width: 800px;
+  height: auto;
+  padding: 20px 30px;
+  background: #1f212d; /* Slightly darker background for contrast */
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* Soft shadow */
   text-align: center;
 }
 
+/* Header styling */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
 }
 
+/* Title styling */
 h1 {
-  color: #4facfe; /* Bright blue heading */
+  font-size: 36px;
+  color: #4facfe; /* Bright blue text */
   margin: 0;
-  padding: 10px 0;
 }
 
+/* Difficulty bar with rounded cells */
 #difficulty-bar {
   display: flex;
   gap: 5px;
 }
 
 .cell {
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   background: #2a2f4f; /* Muted dark blue cells */
-  border-radius: 2px;
+  border-radius: 50%; /* Circular cells */
+  border: 2px solid #3d4263; /* Subtle border */
 }
 
 .cell.active {
   background: #4facfe; /* Bright blue for active cells */
+  border-color: #4facfe;
 }
 
+/* Fund name display */
 #fund-name {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   color: #c8d1ff; /* Muted light blue */
-  margin-top: 10px;
+  margin: 20px 0;
 }
 
+/* Question container styling */
 #question-container p {
-  font-size: 18px;
+  font-size: 22px;
   color: #dbe4ff; /* Light blue text */
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.05); /* Subtle background for contrast */
+  padding: 10px 20px;
+  border-radius: 12px;
+  display: inline-block;
 }
 
+/* Option buttons */
 #options-container button {
-  display: block;
-  margin: 10px auto;
-  padding: 10px 20px;
+  margin: 10px 5px;
+  padding: 12px 25px;
   font-size: 16px;
-  background-color: #2a2f4f; /* Dark button */
-  color: #dbe4ff; /* Light blue text */
-  border: 1px solid #3d4263; /* Subtle border */
-  border-radius: 5px;
+  background: #2c6fa6;
+  color: #dbe4ff; /* Light text */
+  border: none;
+  border-radius: 10px;
   cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
 }
 
 #options-container button:hover {
-  background-color: #4facfe; /* Bright blue on hover */
-  color: #12162b; /* Dark text for contrast */
+  background: linear-gradient(135deg, #4facfe, #3a91d6); /* Brighter gradient */
+  color: #12162b; /* Darker text for contrast */
+  transform: translateY(-3px); /* Subtle hover effect */
 }
 
+/* Answer container */
 #answer-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px; /* Spacing between the input and button */
+  gap: 10px;
   margin-top: 20px;
 }
 
 #user-answer {
-  flex: 1; /* Allow the input field to take available space */
-  padding: 10px;
+  flex: 1;
+  padding: 12px;
   font-size: 16px;
   border: 1px solid #3d4263; /* Subtle border */
-  background-color: #1a1f3a; /* Dark input background */
+  background: #1a1f3a; /* Dark input background */
   color: #dbe4ff; /* Light blue text */
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 #submit-answer {
-  padding: 10px 20px;
+  padding: 12px 25px;
   font-size: 16px;
-  background-color: #2a2f4f; /* Dark button */
-  color: #dbe4ff; /* Light blue text */
-  border: 1px solid #3d4263; /* Subtle border */
-  border-radius: 4px;
+  background: linear-gradient(135deg, #2a2f4f, #4facfe);
+  color: #dbe4ff;
+  border: none;
+  border-radius: 10px;
   cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
 }
 
 #submit-answer:hover {
-  background-color: #4facfe; /* Bright blue on hover */
-  color: #12162b; /* Dark text for contrast */
+  background: linear-gradient(135deg, #4facfe, #3a91d6);
+  transform: translateY(-3px); /* Hover lift effect */
 }
 
-#feedback {
-  margin-top: 20px;
-  font-size: 16px;
-  color: #dbe4ff; /* Light blue text */
-}
-
-/* Score display */
-#score {
-  margin-top: 20px;
-  font-size: 18px;
-  color: #4facfe; /* Highlight for score */
-}
-
-/* Pop-up feedback styles */
+/* Pop-up feedback */
 #popup-feedback {
   position: fixed;
   bottom: -200px;
-  left: 0;
-  right: 0;
-  background-color: #1a1f3a; /* Darker blue */
-  color: #dbe4ff; /* Light text */
+  left: 20%;
+  right: 20%;
+  background: #1a1f3a; /* Darker background */
+  color: #dbe4ff;
   padding: 20px;
   text-align: center;
   font-size: 16px;
   border-top: 4px solid #4facfe;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
   transition: bottom 0.4s ease-in-out;
 }
 
 #popup-feedback.show {
-  bottom: 0;
+  bottom: 10%; /* Show near the bottom */
 }
 
 #popup-feedback p {
@@ -144,15 +157,15 @@ h1 {
 }
 
 #popup-feedback button {
-  background-color: #4facfe; /* Bright blue button */
-  color: #12162b; /* Dark text for contrast */
+  background: linear-gradient(135deg, #4facfe, #3a91d6);
+  color: #12162b;
   border: none;
   padding: 10px 20px;
   font-size: 14px;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
 }
 
 #popup-feedback button:hover {
-  background-color: #3a91d6; /* Slightly darker blue on hover */
+  background: linear-gradient(135deg, #3a91d6, #4facfe);
 }
