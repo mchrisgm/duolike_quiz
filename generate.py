@@ -20,10 +20,10 @@ def extract_text_from_pdf(pdf_path):
 def generate_questions_and_answers(pdf_text, fund_name):
     """Use OpenAI API to generate questions and answers for a given fund."""
     prompt = f"""You are a financial expert. Create a JSON structure containing a full set of questions and answers for the following fund information:
-    
+
     Fund Name: {fund_name}
     Details: {pdf_text}
-    
+
     Structure each question as follows:
     {{
         "type": "multiple_choice" or "fill_in_blank",
@@ -33,8 +33,8 @@ def generate_questions_and_answers(pdf_text, fund_name):
         "answer": "The correct answer",
         "fact": "A relevant fact about the answer"
     }}
-    
-    Provide at least 10 questions of varying difficulty, focusing on key facts, objectives, sectors, geography, and structure.
+
+    Provide at least 20 questions of varying difficulty, focusing on key facts, objectives, sectors, geography, and structure.
     Ensure the JSON follows this structure:
     {{
         "funds": [
@@ -57,8 +57,9 @@ def generate_questions_and_answers(pdf_text, fund_name):
             }}
         ]
     }}
-    
+
     Return ONLY the JSON object containing the questions and answers.
+    Make sure there are exactly 20 questions.
     """
 
     response = client.chat.completions.create(
@@ -74,11 +75,15 @@ def generate_questions_and_answers(pdf_text, fund_name):
 def process_pdfs_in_folder(folder_path):
     """Process all PDF files in the given folder and generate individual JSON files."""
     json_outputs = []
-    for file_name in os.listdir(folder_path):
+    for file_name in sorted(os.listdir(folder_path)):
         if file_name.endswith(".pdf"):
             pdf_path = os.path.join(folder_path, file_name)
             fund_name = os.path.splitext(file_name)[0]  # Using the file name as the fund name for simplicity
             output_json_path = os.path.splitext(pdf_path)[0] + "_questions.json"
+
+            if os.path.exists(output_json_path):
+                print(f"Skipping {file_name} as the output file already exists...")
+                continue
 
             print(f"Processing {file_name}...")
             pdf_text = extract_text_from_pdf(pdf_path)
